@@ -1,7 +1,10 @@
-function Counter() {
+/* eslint-disable react/prop-types */
+function Counter({ numberOfItemsPacked, totalNumberOfItems }) {
   return (
     <p>
-      <b>1</b> / 3 Items Pack
+      {" "}
+      {numberOfItemsPacked}
+      <b>{totalNumberOfItems}</b> / Items Pack
     </p>
   );
 }

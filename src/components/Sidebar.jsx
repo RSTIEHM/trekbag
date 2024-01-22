@@ -2,23 +2,14 @@
 import AddItemForm from "./AddItemForm";
 import ButtonGroup from "./ButtonGroup";
 
-function Sidebar({
-  handleAllComplete,
-  resetInitialItems,
-  handleAddItem,
-  handleDeleteAllItems,
-  handleAllIncomplete,
-}) {
+import { useItemsStore } from "../stores/itemsStore";
+
+function Sidebar() {
+  const addItem = useItemsStore((state) => state.addItem);
   return (
     <div className="sidebar">
-      <AddItemForm onAddItem={handleAddItem} />
-      <ButtonGroup
-        handleAllComplete={handleAllComplete}
-        resetInitialItems={resetInitialItems}
-        handleDeleteAllItems={handleDeleteAllItems}
-        handleAllIncomplete={handleAllIncomplete}
-        text="Add To List"
-      />
+      <AddItemForm onAddItem={addItem} />
+      <ButtonGroup />
     </div>
   );
 }

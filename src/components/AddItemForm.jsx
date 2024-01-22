@@ -17,11 +17,7 @@ function AddItemForm({ onAddItem }) {
       inputRef.current.focus();
       return;
     }
-    let newItem = {
-      id: Math.random(),
-      name: itemText,
-      packed: false,
-    };
+    let newItem = itemText;
     onAddItem(newItem);
     setItemText("");
   }

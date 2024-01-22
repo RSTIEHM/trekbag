@@ -1,25 +1,28 @@
 /* eslint-disable react/prop-types */
 /* eslint-disable react/jsx-key */
+
+import { useItemsStore } from "../stores/itemsStore";
 import Button from "./Button";
 
-function ButtonGroup({
-  handleAllComplete,
-  resetInitialItems,
-  handleDeleteAllItems,
-  handleAllIncomplete,
-}) {
+function ButtonGroup() {
+  const markAllAsComplete = useItemsStore((state) => state.markAllAsComplete);
+  const markAllAsInComplete = useItemsStore(
+    (state) => state.markAllAsInComplete
+  );
+  const resetToInitial = useItemsStore((state) => state.resetToInitial);
+  const deleteAllItems = useItemsStore((state) => state.deleteAllItems);
   return (
     <section className="button-group">
-      <Button onClick={handleAllComplete} buttontype="secondary">
+      <Button onClick={markAllAsComplete} buttontype="secondary">
         Mark All As Complete
       </Button>
-      <Button onClick={handleAllIncomplete} buttontype="secondary">
+      <Button onClick={markAllAsInComplete} buttontype="secondary">
         Mark All As Incomplete
       </Button>
-      <Button onClick={resetInitialItems} buttontype="secondary">
+      <Button onClick={resetToInitial} buttontype="secondary">
         Reset
       </Button>
-      <Button onClick={handleDeleteAllItems} buttontype="secondary">
+      <Button onClick={deleteAllItems} buttontype="secondary">
         Delete
       </Button>
     </section>

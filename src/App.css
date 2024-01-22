@@ -304,3 +304,11 @@ footer {
   opacity: 0.5;
   margin-top: 12px;
 }
+
+.empty-view {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  height: 100%;
+}
